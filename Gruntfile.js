@@ -32,7 +32,8 @@ module.exports = function(grunt) {
                         'console',
                         'angular',
                         'app',
-                        'document'
+                        'document',
+                        '$scope'
                     ],
                     node: false,
                     plusplus: true,
