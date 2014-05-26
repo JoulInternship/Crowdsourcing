@@ -1,0 +1,201 @@
+
+/**
+ * Calcul de la taille du texte en rem
+ */
+@mixin font-size($font-size){
+    font-size: $font-size +px;
+    font-size: $font-size / $base-font-size +rem;
+}
+@mixin line-height($line-height){
+    line-height: $line-height +px;
+    line-height: $line-height / $base-font-size +rem;
+}
+
+/**
+ * Font Family
+ */
+@mixin font-family{
+    font-family: Lato, Helvetica, Arial, sans-serif;
+}
+
+/**
+ * Titres
+ */
+
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6{
+    @include font-family;
+    color: $grisDark;
+    letter-spacing: 1px;
+}
+
+h1, .h1 {
+    @include font-size(30);
+    @include line-height(36);
+
+    @include margin-top(1.2);
+    @include margin-bottom(1.2);
+
+    font-weight: 100;
+}
+
+h2, .h2 {
+    @include font-size(22);
+    @include line-height(28);
+
+    @include margin-top(1);
+    @include margin-bottom(0.8);
+    
+    font-weight: 100;
+}
+
+h3, .h3 {
+    @include font-size(18);
+    @include line-height(20);
+    
+    @include margin-top(0.8);
+    @include margin-bottom(0.6);
+
+    font-weight: 300;
+}
+
+h4, .h4 {
+    @include font-size(16);
+    @include line-height(20);
+    
+    //margin-bottom: 25px;
+
+    font-weight: 300;
+}
+
+h5, .h5 {
+    @include font-size(20);
+    @include line-height(20);
+}
+
+h6, .h6 {
+    @include font-size(20);
+    @include line-height(20);
+
+    font-style: italic;
+}
+
+.subtitle {
+    @include font-size(20);
+    @include line-height(38);
+
+    font-weight: 300;
+
+    font-style: italic;
+}
+
+
+
+/**
+ * Content text
+ */
+
+
+p, .p, 
+li, 
+label, 
+span,
+button,
+input[type="text"], input[type="email"],
+figcaption {
+    
+    @include font-family;
+    @include font-size(16);
+    @include line-height(24);
+    
+    font-weight: 300;
+
+    color: $grisMoyen;
+
+    letter-spacing: 2px;
+}
+
+p, .p, {
+    @include margin(1,0,1.2,0);
+}
+
+/*p*/.small {
+    @include font-size(14);
+    @include line-height(20);
+    letter-spacing: 1px;
+}
+
+p.small {
+    @include margin(0.6,0,0.8,0);
+}
+
+label {
+    @include margin-bottom(0.6);
+}
+
+
+/**
+ * Link
+ */
+
+
+a {
+    @include transition(0.1, color);
+    color: $grisMoyen;
+    text-decoration: none;
+
+    &:hover {
+        color: $grisDark;
+        text-decoration: none;
+    }
+}
+
+
+.noTextDecoration {
+    text-decoration: none;
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+.bigHover {
+
+    @include transition(0.1, padding-bottom);
+
+    &:hover {
+        padding-bottom: 3px;
+        border-bottom: 2px solid rgba($grisDark, 1.0);
+    }
+}
+
+
+/**
+ * Button
+ */
+
+button, .button {
+    display: inline-block;
+
+    @include padding(1,1,1,1);
+
+    @include transition(0.1, all);
+
+    background: transparent;
+    border: none;
+
+    font-weight: 400;
+    @include font-size(16);
+
+    &:not(.notHover):hover {
+        color: $grisDark;
+        border-color: $grisDark;
+    }
+}
+
+a.button {
+    text-decoration: none;
+}
+
+
+
