@@ -1,0 +1,58 @@
+<div class="col-xs-12">
+    
+    <div class="row">
+        
+        <h1 class="col-xs-12">User</h1>
+        
+        <form class="col-xs-12">
+            
+            <div class="row">
+
+                <div class="col-xs-4">
+
+                    <div class="row">
+                        
+                        <div class="col-xs-12 mb1">
+                            <label for="nick">Nickname :</label>
+                            <input class="w100" type="text" id="nick" ng-model="user.me.nick">
+                        </div>
+    
+                        <div class="col-xs-12 mb1">
+                            <label for="mood">Mood :</label>
+                            <input class="w100" type="text" id="mood" ng-model="user.me.mood">
+                        </div>
+
+                    </div>
+                    
+                </div>
+
+
+                <div class="col-xs-4 col-xs-offset-1">
+
+                    <div class="row">
+                        
+                        <div class="col-xs-12 mb1">
+                            <label for="id">ZZZ Id :</label>
+                            <input class="w100" type="text" id="id" ng-model="user.id">
+                        </div>
+
+                        <div class="col-xs-12 mb1">
+                            <label for="key">ZZZ Key :</label>
+                            <input class="w100" type="text" id="key" ng-model="user.key">
+                        </div>
+
+                    </div>
+                    
+                </div>
+                
+                <div class="col-xs-12">
+                    <button ng-click="save()" class="btn btn-primary">Save</button>
+                </div>
+            </div>
+            
+        </form>
+        
+    </div>
+
+</div>
+
