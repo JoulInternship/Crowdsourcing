@@ -65,14 +65,13 @@
         };
 
         //return index of a specific thing in things, by url
-        var index = function (url) {
+        var indexByUrl = function (url) {
             return $.map(things, function (e, index) {
                 if (e.url === url) {
                     return index;
                 }
             });
         };
-
 
         return {
 
@@ -131,7 +130,7 @@
              */
             join: function (url, callback) {
 
-                things[index(url)[0]].userInside = true;
+                things[indexByUrl(url)[0]].userInside = true;
 
                 var msg = {
                     url: url,
@@ -142,8 +141,32 @@
                     userService.id(data.ZZZResp.id);
                     userService.key(data.ZZZResp.key);
 
-                    callback(index(url)[0]);
+                    callback(indexByUrl(url)[0]);
                 });
+
+            },
+
+            /**
+             * myUrls
+             * 
+             * @param  {Function} callback Optionnal
+             * @return {Array}            Things url I've join
+             */
+            myUrls: function (callback) {
+
+                var myThings = [];
+
+                $.map(things, function (thing) {
+                    if (thing.userInside) {
+                        myThings.push(thing.url);
+                    }
+                });
+
+                if (callback) {
+                    callback(myThings);
+                }
+
+                return myThings;
 
             },
 
@@ -156,7 +179,7 @@
              */
             exit: function (url, callback) {
 
-                things[index(url)[0]].userInside = false;
+                things[indexByUrl(url)[0]].userInside = false;
 
                 var urls = getUrls();
 
@@ -170,7 +193,7 @@
                 };
 
                 apiService.refresh(null, msg, function (data) {
-                    callback(index(url)[0]);
+                    callback(indexByUrl(url)[0]);
                 });
 
             }

@@ -24,7 +24,7 @@
 
                 $rootScope.loading = true;
 
-                thingService.join(url, function () {
+                thingService.join(url, function (data) {
                     $rootScope.loading = false;
                     getThings();
                 });
