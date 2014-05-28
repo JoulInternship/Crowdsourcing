@@ -132,12 +132,28 @@
 
                 things[indexByUrl(url)[0]].userInside = true;
 
+                var id = userService.id(),
+                    key = userService.key();
+
                 var msg = {
                     url: url,
                     me: userService.me()
                 };
 
+                //If id and key
+                //We've already join a zzz
+                //Don't create a new user
+                if (id && key) {
+                    msg.id  = id;
+                    msg.key = key;
+                }
+
+                console.log(msg);
+
                 apiService.join(null, msg, function (data) {
+
+                    console.log(data);
+
                     userService.id(data.ZZZResp.id);
                     userService.key(data.ZZZResp.key);
 

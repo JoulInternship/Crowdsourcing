@@ -20,13 +20,28 @@
                 var msg = $scope.user;
                 msg.urls = thingService.myUrls();
 
-                apiService.refresh(null, msg, function (data) {
+                //We're already in a zzz, refresh
+                if (msg.id && msg.key) {
+                    console.log("ici");
+
+                    apiService.refresh(null, msg, function (data) {
+
+                        userService.get($scope.user, function () {
+                            $rootScope.loading = false;
+                        });
+
+                    });
+
+                } else { //Just save
 
                     userService.get($scope.user, function () {
+
                         $rootScope.loading = false;
                     });
 
-                });
+                }
+
+                $scope.user = userService.get();
             };
 
         }
