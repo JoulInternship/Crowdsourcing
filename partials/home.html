@@ -1,0 +1,26 @@
+<div class="col-xs-12">
+    
+
+    <h1>Things</h1>
+
+    <ul class="list-group">
+
+        <li class="list-group-item" ng-repeat="t in things">
+            
+            <h4 class="list-group-item-heading">{{t.req.ZZZResp.zzz.title}}</h4>
+            <p class="list-group-item-text">
+                
+                {{t.req.ZZZResp.zzz.message}}
+                
+                <button ng-show="{{!t.thing.userInside}}" ng-click='join(t.thing.url)' class="btn btn-primary pull-right mr1">Join</button>
+                <button ng-show="{{t.thing.userInside}}" ng-click='exit(t.thing.url)' class="btn btn-danger pull-right mr1">Exit</button>
+
+                <a ng-show="t.thing.admin" ng-href="#/zzz/{{t.thing.url}}" class="btn btn-warning pull-right mr1">Edit</a>
+                
+                <span class="clearfix"></span>
+
+            </p>
+        </li>
+    </div>
+
+</div>
