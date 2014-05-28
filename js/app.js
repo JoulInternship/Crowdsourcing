@@ -12,9 +12,9 @@
                 templateUrl: 'partials/home.html',
                 controller: 'listController'
             })
-            .when('/me', {
-                templateUrl: 'partials/me.html',
-                controller: 'meController'
+            .when('/user', {
+                templateUrl: 'partials/user.html',
+                controller: 'userController'
             })
             .otherwise({redirectTo: '/'});
 
