@@ -21,7 +21,7 @@ module.exports = function(grunt) {
         jslint : {
             server : {
                 src : ['*.js', 'js/*.js', 'js/*/*.js'],
-                exclude : ['Gruntfile.js', '*/lib/*.js'],
+                exclude : ['Gruntfile.js', '*/lib/*.js', 'node.js'],
                 directives: {
                     predef: [
                         '$',
